@@ -1,6 +1,9 @@
 from flask import Flask, request
-from backend.services.account import *
 import sys
+import os
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+sys.path.append(parent_dir)
+from services.account import *
 port = 8000
 app = Flask(__name__)
 
