@@ -8,4 +8,7 @@ class Customer:
         self.dob = dob
         self.drivers_license = drivers_license
         self.phone = phone
-        self.password = password
+        self.password = hash_password(password)
+    
+def hash_password(password):
+    hash(password)
