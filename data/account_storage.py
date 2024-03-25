@@ -48,6 +48,7 @@ def change_customer(customer, user_id):
     }
     with Session(engine) as session:
         session.query(Users).filter(Users.user_id==user_id).update(user)
+    return user_id
 
 def grab_customer(login):
     with Session(engine) as session:

@@ -37,8 +37,8 @@ def handle_delete_profile(user_id):
 def handle_show_owned_cars(user_id):
     return get_owned_cars_app(user_id)
 
-@app.post("/profile/<user_id>/add/cars/<car_id>")
-def handle_add_owned_car(user_id, car_id):
+@app.post("/profile/<user_id>/add/cars")
+def handle_add_owned_car(user_id):
     return None
 
 # Landing

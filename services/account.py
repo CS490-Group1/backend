@@ -74,3 +74,6 @@ def get_owned_cars_domain(user_id):
         }
         cars.append(car_json)
     return cars
+
+def add_owned_car_domain(user_id, car_info):
+    return None

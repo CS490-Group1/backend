@@ -18,3 +18,6 @@ def edit_password_app(info):
 
 def get_owned_cars_app(user_id):
     return get_owned_cars_domain(user_id)
+
+def add_owned_car_app(user_id, car_info):
+    return add_owned_car_domain(user_id, car_info)
