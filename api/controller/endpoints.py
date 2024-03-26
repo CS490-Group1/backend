@@ -1,9 +1,11 @@
 from flask import Flask, request
 import sys
 import os
+
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.append(parent_dir)
 from account_app import *
+from car_app import *
 port = 8000
 app = Flask(__name__)
 
@@ -44,7 +46,7 @@ def handle_add_owned_car(user_id):
 # Landing
 @app.get("/display/cars")
 def handle_diplay_cars():
-    return None
+    return display_all_cars_app()
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
