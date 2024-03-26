@@ -1,5 +1,5 @@
 from data.car_storage import get_available_cars
-
+import json
 
 def display_all_cars_domain():
     cars = []
@@ -17,4 +17,5 @@ def display_all_cars_domain():
             "image": car.image
         }
         cars.append(car_json)
-    return cars
+    result = json.dumps(cars)
+    return result
