@@ -1,5 +1,4 @@
 from data.alchemy_setup import engine
-from sqlalchemy import text
 from sqlalchemy.orm import Session
 from datetime import datetime
 from data.alchemy_classes import Users, Authentication, Cars, Owned
@@ -19,7 +18,8 @@ def store_customer(customer):
     )
 
     auth = Authentication(
-        password=customer.password,
+        password=customer.password.password,
+        salt=customer.password.salt,
         created=time,
         last_updated=time,
         notes=''
@@ -52,7 +52,7 @@ def change_customer(customer, user_id):
 
 def grab_customer(login):
     with Session(engine) as session:
-        return session.query(Authentication.password).join(Users).filter(Users.email==login).all()[0][0]
+        return session.query(Authentication).join(Users).filter(Users.email==login).all()
 
 def change_password(info):
     with Session(engine) as session:

@@ -1,3 +1,5 @@
+from api.model.password import Password
+
 class Customer:
     def __init__(self, email=None, first_name=None, last_name=None, dob=None, drivers_license=None, phone=None, password=None):
         self.email = email
@@ -6,4 +8,4 @@ class Customer:
         self.dob = dob
         self.drivers_license = drivers_license
         self.phone = phone
-        self.password = hash(password)
+        self.password = Password(self.email, password)
