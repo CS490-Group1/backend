@@ -37,6 +37,7 @@ class Authentication(Base):
     __tablename__ = "authentication"
     user_id = Column(Integer, ForeignKey("users.user_id"), primary_key=True,  autoincrement=True)
     password = Column(String(256))
+    salt = Column(String(256))
     created = Column(TIMESTAMP)
     last_updated = Column(TIMESTAMP)
     notes = Column(String(256))

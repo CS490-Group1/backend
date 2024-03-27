@@ -30,10 +30,16 @@ def edit_customer(info, user_id):
     
 
 def authenticate(info):
-    sent_password = Password(info.get("email"), info.get("password"))
-    stored_password = grab_customer(sent_password.email)
+    stored_password = grab_customer(info.get("email"))
+    for password in stored_password:
+        challenge_password = {
+            "password":password.password,
+            "salt":password.salt
+        }
+
+    sent_password = Password(info.get("email"), info.get("password"), challenge_password["salt"])
     if(stored_password):
-        if(sent_password.password == stored_password):
+        if(sent_password.password == challenge_password["password"]):
             return {
                 'status': 'success',
                 'email': info.get("email"),
