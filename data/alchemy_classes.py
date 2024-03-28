@@ -37,6 +37,7 @@ class Authentication(Base):
     __tablename__ = "authentication"
     user_id = Column(Integer, ForeignKey("users.user_id"), primary_key=True,  autoincrement=True)
     password = Column(String(256))
+    salt = Column(String(256))
     created = Column(TIMESTAMP)
     last_updated = Column(TIMESTAMP)
     notes = Column(String(256))
@@ -51,7 +52,7 @@ class Cars(Base):
     car_id = Column(Integer, primary_key=True, autoincrement=True)
     make = Column(String(32))
     model = Column(String(32))
-    year = Column(Date)
+    year = Column(String(4))
     color = Column(String(32))
     type = Column(String(32))
     mpg = Column(DECIMAL(3, 1))
