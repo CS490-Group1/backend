@@ -1,9 +1,14 @@
 import pytest
-from my_project import create_app
+import sys
+import os
+
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../api/controller'))
+sys.path.append(parent_dir)
+from app import app as my_app
 
 @pytest.fixture()
 def app():
-    app = create_app()
+    app = my_app
     app.config.update({
         "TESTING": True,
     })
