@@ -24,7 +24,6 @@ def store_car(car):
         created=time,
         last_updated=time, notes=''
     )
-    
     with Session(engine) as session:
         session.add(car)
         session.commit()

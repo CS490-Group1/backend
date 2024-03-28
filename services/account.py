@@ -96,7 +96,7 @@ def get_owned_cars_domain(user_id):
             "car_id":car.car_id,
             "make":car.make,
             "model": car.model,
-            "year": car.year.isoformat() if car.year else None,
+            "year": car.year,
             "color": car.color,
             "type": car.type,
             "mpg": float(car.mpg) if car.mpg is not None else None,
