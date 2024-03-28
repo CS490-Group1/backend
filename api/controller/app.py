@@ -2,13 +2,9 @@ from flask import Flask, request
 import sys
 import os
 from flask import jsonify
-import json
 
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.append(parent_dir)
-# from backend.api.controller.account_app import generate_customer, challenge_password, get_owned_cars_app
-# from backend.api.controller.account_app import edit_profile, edit_password_app, forgot_password_app
-# from backend.api.controller.car_app import display_all_cars_app
 from account_app import *
 from car_app import *
 app = Flask(__name__)
