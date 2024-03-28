@@ -1,6 +1,5 @@
-from api.model.car import Car
-from data.car_storage import store_car, get_available_cars
-
+from data.car_storage import get_available_cars
+import json
 
 def display_all_cars_domain():
     cars = []
@@ -10,7 +9,7 @@ def display_all_cars_domain():
             "car_id":car.car_id,
             "make":car.make,
             "model": car.model,
-            "year": car.year,
+            "year": car.year.isoformat() if car.year else None,
             "color": car.color,
             "available": car.available,
             "type": car.type,
@@ -18,14 +17,5 @@ def display_all_cars_domain():
             "image": car.image
         }
         cars.append(car_json)
-    return cars
-
-def create_car(info, available=1):
-    new_car = Car(info.get("make"), info.get("model"), info.get("year"), info.get("color"), info.get("type"), 
-                  info.get("mpg"), 0 if info.get("price") is None else info.get("price"), available, info.get("image"))
-    new_car_id = store_car(new_car)
-    return {
-        'status': 'success',
-        'message': 'Successfully created',
-        'car_id': new_car_id
-    }
+    result = json.dumps(cars)
+    return result
