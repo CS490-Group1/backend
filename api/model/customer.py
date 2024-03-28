@@ -8,4 +8,4 @@ class Customer:
         self.dob = dob
         self.drivers_license = drivers_license
         self.phone = phone
-        self.password = Password(self.email, password)
+        self.password = Password(self.email, password) if password is not None else None

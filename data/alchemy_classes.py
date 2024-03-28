@@ -52,7 +52,7 @@ class Cars(Base):
     car_id = Column(Integer, primary_key=True, autoincrement=True)
     make = Column(String(32))
     model = Column(String(32))
-    year = Column(Date)
+    year = Column(String(4))
     color = Column(String(32))
     type = Column(String(32))
     mpg = Column(DECIMAL(3, 1))
