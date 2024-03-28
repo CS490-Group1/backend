@@ -8,7 +8,6 @@ def generate_customer(info):
         if(response["status"] == "success"):
             return create_customer(info)
         else: return response
-    
 
 def challenge_password(info):
     response = authenticate(info)
@@ -23,7 +22,7 @@ def edit_profile(info, user_id):
         else: return response
     else:
         return edit_customer(info, user_id)
-
+    
 def edit_password_app(info):
     response = challenge_password(info)
     if(response["status"] == "Fail"):
